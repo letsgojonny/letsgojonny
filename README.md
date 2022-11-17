@@ -2,6 +2,14 @@
 
 진짜 마지막으로 바꿔보자
 
+git add . : 대상 파일 및 폴더 지정
+git commit -m "변경 내용" : local repo.에 변경 내용 저장
+git push : 원격 repo.에 저장
+
+git clone url : (처음 복제할 경우?) 원격 repo. 내용을 local repo.로 복제
+
+git pull : clone 후 (이미 내 컴에 주소 저장되 있어서?) 원격 repo.의 변경 내용을 local repo.로 가져옴 
+
 
 # .md 확장자란? 
 
