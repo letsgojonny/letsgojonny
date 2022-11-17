@@ -4,7 +4,7 @@
 
 git add . : 대상 파일 및 폴더 지정
 git commit -m "변경 내용" : local repo.에 변경 내용 저장
-git push : 원격 repo.에 저장
+git push : local repo.에 변경된 내용을 원격 repo.에 저장
 
 git clone url : (처음 복제할 경우?) 원격 repo. 내용을 local repo.로 복제
 
