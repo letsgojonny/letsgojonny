@@ -1,0 +1,95 @@
+
+
+디렉토리 : 파일을 분류하기 위해 사용하는 이름공간
+	 자기에게 소속된 파일/디렉토리 번호를 담고있음
+
+-- GIT 최신버전 설치
+-- sudo yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm
+-- sudo yum remove git
+-- sudo yum install git
+-- git --version	
+	git version 2.31.1
+
+touch 파일.확장자 : 빈 파일 생성
+
+Cannot remove ~~~~ "Is a directory" 
+rm 파일 : 작업 디렉토리에 있는 파일 삭제
+rm -rf 폴더/파일 : 하위 파일까지 모두 삭제 
+rm *bak : 이름은 모르겠지만 bak 확장자 모두 삭제 ( * = 와일드카드)
+
+git diff 파일 : 변경된 파일 내용 확인 ( Old fashioned)
+
+git checkout 파일 : 작업 디렉토리의 파일을 변경한 후 변경 전으로 되돌림
+		 staging area / 최종 commit 한 버전으로 되돌림
+		Working Directory / Staging Area / Committed 영역 구분하는 게 중요!!!
+		이런 의미에서 git add ~~ 신중하게 ?!!
+
+git rm 파일 : staging area의 기록에서 지정 파일 제거
+	     작업 디렉토리에서도 같이 삭제됨
+
+HEAD : 작업 디렉토리에 로딩한 브랜치를 가리킴 / (최신) 버전을 가리킴 
+1. git reset HEAD ~~ : Staged 파일을 git add 전의 상태로 되돌림
+2. git checkout ~~ : 
+--> 위 2단계를 거쳐야 modify 전 버전으로 돌아감
+
+1. git fetch : 서버에 변경 내역 다 가져옴
+2. git merge : 				Fast-Forward 개념 중요!!!
+	- 수정된 내용 merge 할 경우 새로운 버전이 생김 
+	- merge 후 "수정 내용 comment"
+
+-- 기능 하나씩 구현될 때마다 commit 으로 local 에 저장 
+-- 작업 다 끝난 후 push -- 각각 개발 순서 다 올라감
+
+- shift + dd : 한줄 삭제
+
+-- sourcetree 설치 : 파일내용 보기 쉽게 다운로드 https://www.sourcetreeapp.com/
+		server repo.에는 main branch만 push 가능!! 	
+		local에서 만든 branch는 push 불가능!! 
+		sourcetree에서는 main만 보여줌
+----------------------------------------------------------------------------------------------------
+항상 편집하려는 파일/내용 최신상태에서 시작?! = git pull 먼저 하고 시작해야 편할듯
+----------------------------------------------------------------------------------------------------
+같은 파일 편집 후 서버 repo. 저장 
+--> 같은 파일 local에서 편집 후 git pull 
+--> merge 햇을 때 --> 서버repo. & 로컬repo. 충돌
+--> nano / cat ~~ a.txt 으로 확인 및 편집
+----------------------------------------------------------------------------------------------------
+git의 역할은 단순히 계속 앞으로 나아갈 뿐... 과거 내용을 수정하려는 실수 ㄴㄴ
+----------------------------------------------------------------------------------------------------
+
+//기존 내용//
+<<<<<<< HEAD	(local)	host2 변경내용
+host2=>yyy
+=======	server 	가져온 변경내용		<<AI가 할 수 없는 영역 !!!! 	내가 직접 편집~!!!!>>
+host1=>xxx	(server)
+>>>>>>> refs/remotes/origin/main
+----------------------------------------------------------------------------------------------------
+git branch ~~ : branch ~~ 생성
+* main : 현재 작업하는 브랜치에 * 붙음
+
+git checkout ~~ : HEAD 포인터를 ~~로 옮김
+		HEAD 가 다른 브랜치를 가리키면 그 브랜치의 마지막 버전 파일을 작업디렉토리에 꺼낸다
+
+git merge ~~ : 현재 브랜치의 커밋에 다른 브랜치의 커밋 내용을 합함
+
+----------------------------------------------------------------------------------------------------
+<<작업 시작>> branch는 호흡을 짧게짧게 // 
+- server main branch 로부터 최신 소스를 clone / pull 
+--> main --> branch 생성 --> 작업 후 commit --> main으로 branch를 merge
+--> new branch --> 반복, main으로 merge --> server에서 한 번 더 pull & merge --> push 
+(서버에도 수정 이력 다 기록됨)
+<<작업 끝나면>> 
+- branch 제거 : (제거할 branch 에서 나온 뒤) git checkout 남길 branch --> git branch -d/-D ~~
+----------------------------------------------------------------------------------------------------
+git ls-remote : 원격 레퍼런스(해시코드?)를 조회
+----------------------------------------------------------------------------------------------------
+<<Teamwork -- Server repo. 쓰기 권한 부여>>
+
+
+
+
+
+
+
+
+
