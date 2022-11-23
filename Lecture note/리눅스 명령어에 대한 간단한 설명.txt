@@ -1,0 +1,230 @@
+<<명령어 - 명렁어에 대한 간단한 설명>>
+
+$ 명령어의 사용예
+
+출력 결과 일부
+
+ 
+1. 파일 시스템 탐색 기본 명령어
+
+pwd - print working directory / 현재 작업 디렉토리를 표시
+[vagrant@host1 bitcamp-test]$ pwd
+/home/vagrant/git/bitcamp-test
+
+
+ls - list / 현재 작업 디렉토리에 있는 내용(디렉토리, 파일 등)을 확인
+[vagrant@host1 git]$ ls
+bitcamp-ncp  bitcamp-ncp2  bitcamp-ncp3  bitcamp-study  bitcamp-test
+
+cd - change directory / 디렉토리 이동 / cd [디렉토리 경로 입력]
+[vagrant@host1 git]$ cd bitcamp-test/
+[vagrant@host1 bitcamp-test]$
+
+cd .. - 상위 디렉토리로 이동
+[vagrant@host1 bitcamp-test]$ cd ..
+[vagrant@host1 git]$ 
+
+
+file - 파일 유형 확인 및 정보 출력
+[vagrant@host1 bitcamp-test]$ file letsgojonny.txt
+letsgojonny.txt: ASCII text
+
+less - 파일 내용을 한 번에 한 페이지씩 표시 및 스크롤 가능 
+
+letsgo~~~!!!
+
+letsgo gogo~!!
+
+letsgo gggo~!!
+
+letsgojonny.txt (END)
+
+shift + ;  입력 후 q 를 입력하여 나온다
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. 파일과 디렉토리 조작 명령어
+
+cp - copy / 파일 또는 폴더를 복사 / cp [복사할 파일] [복하될 파일의 이름 부여]
+[vagrant@host1 bitcamp-test]$ cp letsgojonny.txt letsgogo.txt
+[vagrant@host1 bitcamp-test]$ ls
+hun2.txt  hun.txt       letsgojonny.txt  mel2.txt  mel.txt   obh3.txt   summer1.txt
+hun3.txt  letsgogo.txt  mel1.txt         mel3.txt  obh1.txt  README.md  summer.txt
+
+
+mv - move / 파일 또는 디렉토리를 원하는 위치로 이동 또는 이름 바꾸기 / mv 
+
+파일 이름 변경
+[vagrant@host1 bitcamp-test]$ mv letsgojonny.txt letsgogojonny.txt
+[vagrant@host1 bitcamp-test]$ ls
+hun2.txt  hun.txt            letsgogo.txt  mel2.txt  mel.txt   obh3.txt   summer1.txt
+hun3.txt  letsgogojonny.txt  mel1.txt      mel3.txt  obh1.txt  README.md  summer.txt
+
+
+위치 이동
+[vagrant@host1 bitcamp-test]$ mv letsgogojonny.txt hello/
+[vagrant@host1 hello]$ ls
+letsgogojonny.txt
+
+
+다른 디렉토리에 있는 파일을 옮기고자 할 때 / mv [파일 경로 + 파일명] [이동할 파일 경로 + 새로운 파일명]
+[vagrant@host1 hello]$ mv /home/vagrant/git/bitcamp-test/letsgogo.txt /home/vagrant/git/bitcamp-test/hello/hellohello.txt
+[vagrant@host1 hello]$ ls
+hellohello.txt  letsgogojonny.txt
+
+
+mkdir - make directory / 디렉토리를 생성
+
+현재 작업 디렉토리에 생성 - mkdir [생성할 디렉토리명] 
+[vagrant@host1 hello]$ mkdir hi
+[vagrant@host1 hello]$ ls
+hellohello.txt  hi  letsgogojonny.txt
+
+다른 디렉토리에 생성 - mkdir [디렉토리 경로/생성할 디렉토리명]
+[vagrant@host1 hello]$ mkdir /home/vagrant/git/bitcamp-test/hello/hi/bye
+[vagrant@host1 hello]$ cd hi
+[vagrant@host1 hi]$ ls
+bye
+
+rm - remove / 파일을 삭제
+
+rm [파일명] - 해당 파일 삭제
+[vagrant@host1 hi]$ ls
+1  2  3  bye
+[vagrant@host1 hi]$ rm 1
+[vagrant@host1 hi]$ ls
+2  3  bye
+
+rm *.txt - 'txt'로 끝나는 파일을 모두 삭제
+[vagrant@host1 hi]$ ls
+1.txt  2  2.txt  3  bye
+[vagrant@host1 hi]$ rm *.txt
+[vagrant@host1 hi]$ ls
+2  3  bye
+
+rm * - 모든 파일을 삭제 / 디렉토리 존재할 경우 rm -r *
+[vagrant@host1 hi]$ rm *
+rm: cannot remove ‘bye’: Is a directory
+[vagrant@host1 hi]$ rm -r *
+[vagrant@host1 hi]$ ls
+[vagrant@host1 hi]$
+
+
+ln - link / 링크 파일을 생성
+
+심볼릭링크 - 원본파일을 가리키도록 링크만 시켜둔 것 / 윈도우 시스템에서의 '바로가기' 같은 것
+[vagrant@host1 hello]$ ln -s  letsgogojonny.txt ok
+[vagrant@host1 hello]$ ls
+hellohello.txt  hi  letsgogojonny.txt  ok
+
+하드링크 - 원본파일과 다른 이름으로 존재하는 동일한 파일 
+[vagrant@host1 hello]$ ln hellohello.txt ok2
+[vagrant@host1 hello]$ ls
+hellohello.txt  hi  letsgogojonny.txt  ok  ok2
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. 명령어를 다루는 명령어
+
+type - 지정된 명령어의 소속을 확인 / 쉘에 내장된 or 외부 or 앨리어스 명령어인지 등 
+[vagrant@host1 hello]$ type cd
+cd is a shell builtin
+
+
+[vagrant@host1 hello]$ type mkdir
+mkdir is hashed (/usr/bin/mkdir)
+
+
+[vagrant@host1 hello]$ type ls
+ls is aliased to `ls --color=auto'
+
+
+which - 특정 명령어의 위치를 찾아주는 명령어
+
+[vagrant@host1 hello]$ which ls
+alias ls='ls --color=auto'
+
+        /usr/bin/ls
+
+
+[vagrant@host1 hello]$ which cd
+/usr/bin/cd
+
+
+man - manual / 온라인 매뉴얼을 보여줌
+[vagrant@host1 hello]$ man mkdir
+
+매뉴얼 확인
+KDIR(1)                      User Commands                     MKDIR(1)
+
+
+
+NAME
+
+       mkdir - make directories
+
+
+
+SYNOPSIS
+
+       mkdir [OPTION]... DIRECTORY...
+
+
+
+DESCRIPTION
+
+       Create the DIRECTORY(ies), if they do not already exist.
+
+
+apropos - 키워드를 포함하고 있는 명령어를 찾아줌
+[vagrant@host1 hello]$ apropos mk
+
+git-mktag (1)        - Creates a tag object
+
+git-mktree (1)       - Build a tree-object from ls-tree formatted text
+
+grub2-mkconfig (8)   - Generate a GRUB configuration file.
+
+
+
+info - man 보다 상세화 된 매뉴얼
+
+[vagrant@host1 hello]$ info ls
+
+매뉴얼 확인
+File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: D\irectory listing
+
+
+10.1 'ls': List directory contents
+
+==================================
+
+
+
+The 'ls' program lists information about files (of any type, including
+
+directories).  Options and file arguments can be intermixed arbitrarily,
+
+as usual.
+
+
+whatis - 자신의 데이터베이스 검색
+
+[vagrant@host1 hello]$ whatis ls
+
+ls (1)               - list directory contents
+
+ls (1p)              - list directory contents
+
+
+
+alias - 자주 사용하는 명령어를 간편하게 사용하기 위해 특정 문자로 입력 / alias c=cd - cd를 'c'로 명칭 
+
+[vagrant@host1 hello]$ alias c=cd
+[vagrant@host1 hello]$ c hi
+[vagrant@host1 hi]$
+
+
+
+
+
