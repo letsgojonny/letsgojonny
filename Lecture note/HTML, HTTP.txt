@@ -1,0 +1,51 @@
+
+curl - 단순 출력 (더러움)
+wget - 단순 다운로드
+
+<<HTML, HTTP 등장 전>>
+
+FTP - File Transfer Protocol
+
+
+
+<<HTML, HTTP 등장>>
+
+HTTP - Hyper-Text Transfer Protocol
+HTML - Hyper-Text Markup Language
+Meta data = Markup - 데이터를 설명하거나 제어하는 데이터(명령) 
+
+CGI - Common Gateway Interface
+
+인터페이스 : 
+서로 다른 두 개의 시스템, 장치 사이에서 정보나 신호를 
+주고받는 경우의 접점이나 경계면/규칙
+
+rendering : 표현 (사용자 화면)
+
+DBMS - Database management System
+
+<화면 만드는 기술> Front-end
+CSS - Cascading Style Sheet : 콘텐츠의 출력 모양을 제어
++ HTML : 컨텐츠를 구성할 때 사용
++ JavaScrip : 사용자의 액션에 응답 / 코텐츠 제어
+
+<데이터 만드는 기술> Back-end
+Java, JavaScript, PHP
+SQL
+
+<< Front + Back --> Full Stack >> 
+SI - 신규 프로젝트				
+SM - 프로젝트 끝나고 추가 개발/유지보수 ----->>> 신입 개발자
+
+-----------------------------------------------------------------------------------------------------
+
+<< HTML 직접 작성 x / 코딩된 내용 바로바로 확인 경험 누적 >>
+
+
+----알아봐
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
