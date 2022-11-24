@@ -6,8 +6,6 @@ wget - 단순 다운로드
 
 FTP - File Transfer Protocol
 
-
-
 <<HTML, HTTP 등장>>
 
 HTTP - Hyper-Text Transfer Protocol
