@@ -6,7 +6,12 @@
 
 
 
-body {
+body, button, input, select, table, textarea {
+    font-size: 12px;
+    line-height: 16px;
+    color: #202020;
+    font-family: "맑은 고딕", sans-serif;
+
     border: 2px solid black;
     margin: 0;
     padding: 0;
@@ -14,16 +19,157 @@ body {
     min-height: 4723px;
   }
 
-#head {
-    border: 1px solid black;
-    min-height: 100px;
-    min-width: 100%;
-    float: left;
+body, button, dd, d1, dt, fieldset, 
+form, h1, h2, h3, h4, h5, h6, input, 
+legend, li, ol, p, select, 
+table, td, textarea, th, ul {
+    margin: 0px;
+    padding: 0px;
+}
 
+body {
+    display: block;
+}
+
+:root {
+    color-scheme: light;
+}
+
+#wrap {
+    overflow: hidden;
+    /* min-width: 1190px; */
+}
+
+div {
+    display: block
+}
+
+a {
+    color: inherit;
 }
 
 
-.group {
+.wrap-head {
+    border: 3px dotted blue;
+    height: 49px;
+    /* background-color: #21322b; */
+    /* border: 1px solid black; */
+    /* min-width: 100%; */
+    /* float: left; */
+}
+    
+.wrap-head-banner {
+    
+    position: relative;
+    width: 1130px;
+    margin: 0 auto;
+}
+
+.wrap-head-banner-detail {
+    border: 3px dotted blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+}
+
+.whale {
+    border: 3px dotted blue;
+    background-position: 0 -42px;
+    display: inline-block;
+    content: "";
+    vertical-align: top;
+    background-image: url(https://static-whale.pstatic.net/main/sprite-20220513@2x.png);
+    background-repeat: no-repeat;
+    background-size: 141px 112px;
+    margin-top: -35px;
+    float: left;
+    width: 98px;
+    height: 21px;
+    /* background-position: 0 -21px; */
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.people {
+    border: 3px dotted blue;
+    background-position: 0 -42px;
+    display: inline-block;
+    content: "";
+    vertical-align: top;
+    /* background-image: url(https://static-whale.pstatic.net/main/img_darkmode_v12@2x.png); */
+    background-repeat: no-repeat;
+    background-size: 141px 112px;
+    margin-top: -47px;
+    float: left;
+    width: 200px;
+    height: 40px;
+}
+
+.darkmode {
+    border: 3px dotted blue;
+    /* background-position: 0 -42px; */
+    /* display: inline-block; */
+    /* content: ""; */
+    /* vertical-align: top; */
+    /* background-image: url(https://static-whale.pstatic.net/main/img_darkmode_v12@2x.png); */
+    background-repeat: no-repeat;
+    /* background-size: 141px 112px; */
+    margin-top: -47px;
+    float: left;
+    /* width: 200px; */
+    height: 47px;
+    font-size: 17px;
+    line-height: 230%;
+    /* letter-spacing: -.25px; */
+}
+
+.whaledownload-btn {
+    /* text-decoration: none; */
+    border: 3px dotted blue;
+    margin-top: -47px;
+    float: left;
+    height: 47px;
+    width:120px;
+    text-align: right;
+    font-size: 17px;
+    line-height: 230%;
+    padding-right:10px;
+    background-color: #03bc93;
+    border-radius: 30px;
+    /* text-align:center; */
+    margin-left: 730px;
+}
+
+
+.leaf {
+    border: 3px dotted red;
+    background-position: -89px -63px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(https://static-whale.pstatic.net/main/sprite-20220513@2x.png);
+    background-repeat: no-repeat;
+    background-size: 141px 112px;
+    margin-top: -167px;
+    position: relative;
+    float: left;
+    width: 17px;
+    height: 13px;
+}
+
+
+
+
+.service-group {
     border: 1px solid red;
     /* background-color: aqua; */
     float: right;
@@ -88,20 +234,6 @@ body {
     top: 5px;
     margin: 0 0 0 3px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #main {
