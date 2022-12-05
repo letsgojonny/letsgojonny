@@ -237,6 +237,35 @@ a {
 }
 
 
+
+.search {
+    border: 3px dotted blue;
+    background-position: 0 -42px;
+    display: inline-block;
+    content: "";
+    vertical-align: top;
+    /* background-image: url(https://static-whale.pstatic.net/main/sprite-20220513@2x.png); */
+    background-repeat: no-repeat;
+    background-size: 141px 112px;
+    margin-top: 0px;
+    float: left;
+    
+    width: 498px;
+    /* height: 121px; */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 #main {
     border: 1px solid black;
     min-height: 100px;
