@@ -10,7 +10,7 @@ const Board = {
 
   // 1. 새 게임 만들기
   // display: flex와 flex-wrap:wrap 속성을 사용하여
-  // 부모 넓이에 맞는 9개의 div를 새로 만들고
+  // 부모 넓이에 맞는 9개의 div를 += 더하기 할당 연산자를 이용하여 생성
   // HTML의 <div class="panel_list"></div>에 box를 삽입
 
   newMake() {
@@ -66,6 +66,8 @@ const Board = {
         boxArray[j] = boxArray[j] && Board.itemChk(boxstatus[keyArr[j]]);
       }
     }
+    // || :  둘 중 하나 true 이면 true
+    // && : 동시에 true 이면 true
 
     // 대각선 체크
     boxArray[6] = Board.itemChk(boxstatus[0]) && Board.itemChk(boxstatus[4]) && Board.itemChk(boxstatus[8]);
@@ -74,6 +76,8 @@ const Board = {
     const resultBox = boxArray.some(v => v);
 
     // 결과 체크
+    // || : 둘 중 하나 true 이면 true
+
     if (resultBox || [...boxstatus].every(v => Board.itemChk(v, 'player'))) {
       const $modal = document.querySelector(`.modal`);
 
