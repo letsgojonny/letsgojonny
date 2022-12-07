@@ -58,8 +58,8 @@ const Board = {
     // 가로, 세로 체크
     for (let i = 0; i < 3; i++) {
       const keyArr = [
-        i, 3 + i, 6 + i, // 세로
-        i * 3, i * 3 + 1, i * 3 + 2 // 가로
+        i, 3 + i, 6 + i, // 세로 Index
+        i * 3, i * 3 + 1, i * 3 + 2 // 가로 Index
       ];
 
       for (let j = 0; j < 6; j++) {
@@ -73,16 +73,23 @@ const Board = {
     boxArray[6] = Board.itemChk(boxstatus[0]) && Board.itemChk(boxstatus[4]) && Board.itemChk(boxstatus[8]);
     boxArray[7] = Board.itemChk(boxstatus[2]) && Board.itemChk(boxstatus[4]) && Board.itemChk(boxstatus[6]);
 
+
+    // .some : 조건을 만족하는 값이 발견되면 
+    //         즉시 처리 중단
     const resultBox = boxArray.some(v => v);
 
     // 결과 체크
-    // || : 둘 중 하나 true 이면 true
+    // .every : 조건을 만족하지 않는 값이 발견되면
+    //          그 즉시 처리 중단
 
     if (resultBox || [...boxstatus].every(v => Board.itemChk(v, 'player'))) {
       const $modal = document.querySelector(`.modal`);
-
+      
       $modal.className += ' open';
 
+      // resultbox의 값을 boolean 타입으로
+      // true 라면 '승리' 메시지 
+      // false 라면 '무승부' 메시지 출력
       $modal.innerHTML = `<h2>${resultBox ? `${Board.nowTurn}님이 이겼습니다.` : '무승부'}</h2>`;
 
       setTimeout(() => {
