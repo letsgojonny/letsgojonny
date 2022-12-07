@@ -46,20 +46,20 @@ const Board = {
 
   // 3. 게임판의 가로, 세로, 대각선 빙고 여부 확인
   // step 1. 9개의 box를 모두 불러온다
-  // step 2. 빙고 조건 : 가로x3, 세로x3, 대각선x2 설정
+  // step 2. 빙고 조건 : 가로x3, 세로x3, 대각선x2 
+  // 8개의 결과를 담을 box배열을 생성
   // step 3. 
   
   clearChk() {
     const boxstatus = document.querySelectorAll(`.panel_item`);
 
     const boxArray = new Array(8).fill(true);
-    
-
+        
     // 가로, 세로 체크
     for (let i = 0; i < 3; i++) {
       const keyArr = [
-        i, 3 + i, 6 + i, // 가로
-        i * 3, i * 3 + 1, i * 3 + 2 // 세로
+        i, 3 + i, 6 + i, // 세로
+        i * 3, i * 3 + 1, i * 3 + 2 // 가로
       ];
 
       for (let j = 0; j < 6; j++) {
