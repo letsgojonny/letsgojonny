@@ -1,0 +1,64 @@
+::selection {background: transparent;}
+
+h1 {
+	font-size: 70px;
+	text-align: center;
+}
+
+#puzzle{
+	position: relative;
+	width: 40rem;
+	height: 40rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin: 0 auto;
+	border: 8px solid black;
+	border-radius: 4px;
+}
+
+#puzzle > div{
+	position: relative;
+	/* display: block; */
+	/* padding-left: 80px; */
+	/* box-sizing: content-box; */
+	width: 9rem;
+	height: 9rem;
+	margin: 2px;
+	border: 6px solid black;
+	background-color: gray;
+	border-radius: 4px;
+
+	cursor: pointer;
+	font: bold 100px/150px Arial;
+	text-align: center;
+	color: #fff;
+
+}
+
+#puzzle > div:hover{background: black;}
+
+/* 
+#puzzle.animate div{
+	-webkit-transition: 0.15s left, 0.15s top;
+ 	transition: 0.15s left, 0.15s top;
+}  */
+
+
+#controls{text-align: center;}
+
+#controls button{
+	cursor: pointer;
+	outline: none;	
+	padding: 10px 20px;
+	margin: 25px 2px;
+	border: 0;
+	border-radius: 4px;
+	background: gray;
+	font: bold 40px Arial;
+	text-align: center;
+	color: #fff;
+}
+
+#controls button:hover{background: black;}
+
