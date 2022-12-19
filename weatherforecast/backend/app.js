@@ -1,5 +1,4 @@
 // express 라이브러리 로딩하기
-const { json } = require('express');
 const express = require('express');
 
 // HTTP 요청을 다루는 라이브러리 로딩하기
