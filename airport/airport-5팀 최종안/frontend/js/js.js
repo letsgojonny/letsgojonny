@@ -11,14 +11,6 @@ let tt1down = []
 let tt2up = []
 let tt2down = []
 
-let intexctn = 0;
-let intextime = 0;
-let seoultexctn = 0;
-let seoultextime = 0;
-let gyengtexctn = 0;
-let gyengtextime = 0;
-let intertexctn = 0;
-let intertextime = 0;
 
 let station = true; // true : 입국장 , false : 출국장
 let terminal = true; // true : 제1청사 , false : 제2청사
@@ -28,14 +20,6 @@ let titleday = 0;
 if(station) {$(".ipgook").text("출국장")}else {$(".ipgook").text("입국장")}
 if(terminal) {$(".cung").text("2청사")}else {$(".cung").text("1청사")}
 if(airportday) {$(".days").text("내일")}else {$(".days").text("오늘")}
-
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-// myInput.addEventListener('shown.bs.modal', () => {
-//   // myInput.focus()
-//   console.log("모달")
-// })
 
 
 $(".ipgook").click(function() {
@@ -72,7 +56,7 @@ $.getJSON("http://apis.data.go.kr/B551177/PassengerNoticeKR/getfPassengerNoticeI
     });
   }
 );
-$.getJSON("http://192.168.0.6:3000/airport",
+$.getJSON("http://localhost:3000/airport",
   function(res) {
     let body; // 공항 전체정보를 배열로(시간별로) 저장 하는 변수
     body = res.response.body.items;
@@ -105,9 +89,11 @@ function update() {
   for(let i in $(".man")) {
     $(".man")[i].innerText = "입국 승객 " + arr[i] + "명";
   }
+
   if(station && terminal && airportday) {document.querySelector("#taxi").style = "display: ;"} // 입국장, 1청사, 오늘 [true, true, true]
   else if(station && !terminal && airportday) {document.querySelector("#taxi").style = "display: ;"} // 입국장, 2청사, 오늘 [true, false, true]
   else {document.querySelector("#taxi").style = "display: none;"}
+  
   $(".title-text").text(str);
   if(station) {
     document.querySelector(".background").style = "background-image: url(img/입국/입국" + ran(15) + ".blur.png)"
@@ -120,8 +106,8 @@ function update() {
 
 let settexi; // 인터벌 삽입할 변수
 $(".close").click(function(e) { // 택시 알림창 닫기 후에는 실행한 인터벌 클리어
-  document.querySelector(".popup").className = "popup hide"
-  document.querySelector('.poppop').className = 'poppop hide';
+  // document.querySelector(".popup").className = "popup hide"
+  // document.querySelector('.poppop').className = 'poppop hide';
 })
 $("#taxi").click(function(e) { // 택시 알림창 실행 후에는 setInterval 을 통해 0.5 초에 한번씩 실시간 택시정보가 업데이트
   document.querySelector(".popup").className = "popup"
@@ -161,8 +147,5 @@ $("#taxi").click(function(e) { // 택시 알림창 실행 후에는 setInterval 
 })
 
 function ran(int) { // 1 ~ 입력값 까지의 숫자 +1
-  return Math.floor(Math.random()*int+1)+1;
+  return Math.floor(Math.random()*int+1);
 }
-$(".close").on("mouseover", function(e) {
-  document.querySelector(".close").style = ""
-})
